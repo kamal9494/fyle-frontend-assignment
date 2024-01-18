@@ -8,7 +8,7 @@ HTML, CSS, jQuery
 
 ## Features
 
-- Can **search** any github user repositories. (with **topics**)
+- Can **search** any github user repositories.
 - Search bar to **filter** the repositories by name.
 - Pagination. (default **Items-per-page** : 10)
 - Used Github API's to implement the above features.
