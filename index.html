@@ -47,7 +47,7 @@
                 <h1 id="name"></h1>
                 <p id="bio"></p>
                 <div style="display: flex;gap: 2px;align-items: center;">
-                    <?xml version="1.0" ?><svg height="28" viewBox="0 0 48 48" width="48"
+                    <?xml version="1.0" ?><svg height="20" width="20" viewBox="0 0 48 48" width="48"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M24 4c-7.73 0-14 6.27-14 14 0 10.5 14 26 14 26s14-15.5 14-26c0-7.73-6.27-14-14-14zm0 19c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
@@ -57,7 +57,7 @@
 
                     </p>
                 </div>
-                <div style="display: flex; gap: 5px;align-items: center;">Twitter: <p id="twitter"></p>
+                <div id="twitterContainer" style="display: flex; gap: 5px;align-items: center;">Twitter: <a id="twitter" target="_blank"></a>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                     style="height: 100%;">
                 </path>
             </svg>
-            <p class="link"></p>
+            <a target="_blank" class="link"></a>
         </div>
 
 
@@ -214,11 +214,17 @@
 
         function renderInfo(data) {
             $('#profile').attr('src', data.avatar_url);
-            $('#name').text(data.login);
+            $('#name').text(data.name);
             $('#bio').text(data.bio ? data.bio : "null");
             $('#location').text(data.location ? data.location : 'null');
-            $('#twitter').text(data.twitter_username ? "https://twitter.com/" + data.twitter_username : "null")
+            if(data.twitter_username){
+                $('#twitter').text("https://twitter.com/"+data.twitter_username);
+                $('#twitter').prop("href","https://twitter.com/"+data.twitter_username);
+            }else{
+                $('#twitterContainer').hide();
+            }
             $('.link').text(data.url)
+            $('.link').prop("href", data.html_url)
         }
 
         function renderRepos(repos) {
@@ -230,7 +236,7 @@
                     repoCard.append(`<label class="des">${repo.description}</label>`);
                     var topics = $('<div class="topics"></div>');
                     repo.topics.forEach(function (topic) {
-                        var button = $(`<button class="btn">${topic}</button>`);
+                        var button = $(`<button class="topic-btn">${topic}</button>`);
                         topics.append(button);
                     });
                     repoCard.append(topics);
