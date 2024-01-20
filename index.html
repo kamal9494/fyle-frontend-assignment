@@ -22,9 +22,20 @@
                 <label>Enter repository name</label>
                 <input type="text" id="custom" placeholder="Search Repositories..." />
             </div>
-            <div class="items-per-page">
+            <!-- <div class="items-per-page">
                 <label>Items per Page</label>
                 <input type="number" id="perpage" value="10" />
+            </div> -->
+            <div class="items-per-page">
+                <label>Items per Page</label>
+                <select id="perpage">
+                    <option>10</option>
+                    <option>20</option>
+                    <option>40</option>
+                    <option>50</option>
+                    <option>80</option>
+                    <option>100</option>
+                </select>
             </div>
             <div class="btn-container">
                 <button type="submit" class="btn" id="submit">Search</button>
@@ -33,10 +44,8 @@
     </div>
     <div class="container">
         <div class="info">
-            <div class="w-fit">
-                <div class="custom-border">
-                    <img id="profile" class="rounded-circle img-fluid" alt="profile" />
-                </div>
+            <div class="custom-border">
+                <img id="profile" class="rounded-circle img-fluid" alt="profile" />
             </div>
             <div class="user-info">
                 <h1 id="name"></h1>
@@ -243,8 +252,8 @@
             $('.search-form').submit(handleFormSubmission);
 
 
-            function simulateExample(){
-                $('#search').prop("value", "reactjs");
+            function simulateExample() {
+                $('#search').prop("value", "johnpapa");
                 $('#submit').click();
             }
             simulateExample();

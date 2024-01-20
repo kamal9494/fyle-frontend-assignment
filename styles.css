@@ -12,9 +12,18 @@ body {
 .info {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
     padding: 3vh 10vh;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.details{
+    display: flex;
 }
 
 img {
@@ -32,9 +41,6 @@ img {
     color: #428bca;
 }
 
-
-
-
 .repo-link {
     padding-left: 10vh;
     display: flex;
@@ -43,11 +49,11 @@ img {
 }
 
 .card-repo {
-    width: 400px;
+    width: 390px;
     box-sizing: border-box;
     border: 1px solid black;
     border-radius: 2px;
-    padding: 20px;
+    padding: 10px;
 }
 
 
@@ -185,6 +191,7 @@ img {
 }
 
 .disable {
+    color: gray;
     opacity: .6;
     cursor: not-allowed;
 }
@@ -226,5 +233,15 @@ img {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 3vh 10vh;
     }
 }
